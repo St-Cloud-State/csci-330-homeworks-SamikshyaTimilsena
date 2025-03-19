@@ -1,0 +1,30 @@
+Script started on 2025-03-18 15:22:17+00:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="177" LINES="19"]
+[0;32m@SamikshyaTimilsena [0m➜ [1;34m/workspaces/lisp-parser [0;36m([1;31mmain[0;36m) [0m$ sbcl
+This is SBCL 1.4.3, an implementation of ANSI Common Lisp.
+More information about SBCL is available at <http://www.sbcl.org/>.
+
+SBCL is free software, provided as is, with absolutely no warranty.
+It is mostly in the public domain; some portions are provided under
+BSD-style licenses.  See the CREDITS and COPYING files in the
+distribution for more information.
+* (load "Q8.lisp")
+T
+* (test-parser)
+
+Testing valid strings:
+'i x o y o w d s s b e s': Valid string
+'i x o y s': Valid string
+
+Testing invalid strings:
+'x i o y s': Error at position 0: Expected 'i', found 'x'
+'i a o y s': Error at position 1: Expected 'x', 'y', 'z', or 'w', found 'a'
+'i x p y s': Error at position 2: Expected 'o', found 'p'
+'i x o y d s': Error at position 6: Expected 'b', found 'end of input'
+'i x o y d b': Error at position 5: Invalid list after 'd'
+'i x o y s extra': Error at position 5: Unexpected tokens at end
+T
+* (exit)
+[0;32m@SamikshyaTimilsena [0m➜ [1;34m/workspaces/lisp-parser [0;36m([1;31mmain[0;36m) [0m$ exit
+exit
+
+Script done on 2025-03-18 15:24:03+00:00 [COMMAND_EXIT_CODE="0"]
